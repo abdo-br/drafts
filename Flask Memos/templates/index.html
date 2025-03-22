@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask SQLite Entry System</title>
+    <style>
+        /* Center the form */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Style the input */
+        input[type="text"] {
+            width: 400px;
+            height: 40px;
+            font-size: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        button, input[type="submit"], input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            height: 60px;
+            width: 240px;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Add an Item</h1>
+    <form action="/add" method="post">
+        <input type="radio" name="mode" value="1" checked required><span></span>Link
+        <input type="radio" name="mode" value="2" required><span></span>File
+        <input type="radio" name="mode" value="3" required><span></span>Memo<br />
+        <input type="text" name="body" placeholder="" required><br />
+        <input type="text" name="tags" placeholder="Enter tags"><br /><br />
+        <button type="submit">Add</button><br />
+    </form>
+    <br />
+
+    <a href="{{ url_for('links') }}">View Links</a>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask SQLite Entry System</title>
+</head>
+<body>
+    <h2>Add Item</h2>
+    <form action="/add" method="post">
+        <input type="text" name="body" placeholder="" required><br>
+        <input type="radio" name="mode" value="1" required><label>Link</label><br>
+        <input type="radio" name="mode" value="2" required><label>File</label><br>
+        <input type="radio" name="mode" value="3" required><label>Memo</label><br>
+        <input type="text" name="keywords" placeholder="Enter keywords" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>All Items</h2>
+    <ul>
+        {% for i in items %}
+            <li>{{ i[1] }} ({{ i[2] }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
